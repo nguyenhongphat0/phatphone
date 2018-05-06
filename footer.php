@@ -22,7 +22,7 @@
     <script>
     	$('#footer').css('background', 'black');
     </script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"></script>
 	<script src="/function.js"></script>
 </body>
 </html>
