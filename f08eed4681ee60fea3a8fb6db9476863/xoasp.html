@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title>Xóa sản phẩm</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-action">
+                <a href="index.php" class="waves-effect btn blue">Về kho hàng</a>
+                <a href="/index.php" class="waves-effect btn blue">Về trang chủ</a>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Xóa sản phẩm</span>
+                <p>Nhập mã sản phẩm mà bạn muốn xóa.</p>
+                <p><span class="red-text">Lưu ý:</span> một khi sản phẩm đã bị xóa sẽ không thể phục hồi lại được. Hãy cân nhắc kĩ trước khi nhấn nút XÓA</p>
+                <form id="form" action="delsp.php" method="post">
+                    <div class="input-field"> 
+                        <input id="code" name="code" type="text" class="validate" required> 
+                        <label for="code">Mã sản phẩm cần xóa</label> 
+                    </div>
+                    <button class="btn waves-effect waves-light red" type="submit" name="action">Xóa sản phẩm</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
+        $('#form').submit(function(){
+            if (confirm('Bạn có chắc muốn xóa sản phẩm này khỏi kho hàng?')) return true; else return false;
+        })
+    </script>
+</body>
+</html>

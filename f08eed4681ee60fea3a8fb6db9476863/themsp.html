@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title>Thêm sản phẩm mới</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Thông báo!</span>
+                    <p>Đọc kĩ lưu ý và đảm bảo mã sản phẩm phải hợp lệ trước khi nhấn nút <span class="blue-text">THÊM SẢN PHẨM</span>. Mã sản phẩm không hợp lệ vẫn có thể bỏ vào kho nhưng sẽ ảnh hưởng đến sự chính xác trong quá trình mua hàng và thanh toán.</p>
+                </div>
+                <div class="card-action">
+                    <a href="index.php" class="waves-effect btn blue">Về kho hàng</a>
+                    <a href="/index.php" class="waves-effect btn blue">Về trang chủ</a>
+                </div>
+            </div>
+            <div class="card">
+                <form id="add-p-form" action="addsp.php" method="post" enctype="multipart/form-data">
+                <div class="card-content">
+                    <span class="card-title">Thêm sản phẩm</span>
+                    <p>Nhập thông tin của sản phẩm mới:</p>
+                    <div class="section"></div>
+                    <p class="grey-text">Hình 1</p>
+                    <input type="file" name="pic1" id="pic1" class="inputfile" style="display: none" onchange="change(this, 'filelabel1')" accept="image/*"/>
+                    <label for="pic1" class="btn waves-effect blue" id="filelabel1">Chọn hình</label>
+                    <div class="section"></div>
+                    <p class="grey-text">Hình 2</p>
+                    <input type="file" name="pic2" id="pic2" class="inputfile" style="display: none" onchange="change(this, 'filelabel2')" accept="image/*"/>
+                    <label for="pic2" class="btn waves-effect blue" id="filelabel2">Chọn hình</label>
+                    <div class="section"></div>
+                    <p class="grey-text">Hình 3</p>
+                    <input type="file" name="pic3" id="pic3" class="inputfile" style="display: none" onchange="change(this,'filelabel3')" accept="image/*"/>
+                    <label for="pic3" class="btn waves-effect blue" id="filelabel3">Chọn hình</label>
+                    <div class="input-field">
+                        <input id="code" name="code" type="text" class="validate">
+                        <label for="code">Mã sản phẩm</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="maker" name="maker" type="text" class="validate">
+                        <label for="maker">Nhà sản xuất</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="name" name="name" type="text" class="validate">
+                        <label for="name">Tên sản phẩm</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="price" name="price" type="text" class="validate">
+                        <label for="price">Giá</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="des" name="des" type="text" class="validate">
+                        <label for="des">Mô tả</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="cpu" name="cpu" type="text" class="validate">
+                        <label for="cpu">CPU</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="ram" name="ram" type="text" class="validate">
+                        <label for="ram">RAM</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="display" name="display" type="text" class="validate">
+                        <label for="display">Màn hình</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="os" name="os" type="text" class="validate">
+                        <label for="os">Hệ điều hành</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="fcam" name="fcam" type="text" class="validate">
+                        <label for="fcam">Camera trước</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="bcam" name="bcam" type="text" class="validate">
+                        <label for="bcam">Camera sau</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="memory" name="memory" type="text" class="validate">
+                        <label for="memory">Bộ nhớ trong</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="sim" name="sim" type="text" class="validate">
+                        <label for="sim">Sim</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="pin" name="pin" type="text" class="validate">
+                        <label for="pin">Pin</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="tags" name="tags" type="text" class="validate">
+                        <label for="tags">Từ khóa tìm kiếm bổ sung</label>
+                    </div>
+                    <blockquote><b>LƯU Ý</b><hr/>Mã sản phẩm chỉ bao gồm những chữ cái và số, kí tự đầu tiên bắt buộc phải là chữ cái, không chứa kí tự đặc biệt, không chứa dấu, không chứa khoảng trắng. Mã sản phẩm không được trùng lặp, kể cả hoa thường.<br>Giá sản phẩm chỉ bao gồm số.<br>Để nhập dấu ngoặc kép, bỏ thêm kí tự \ phía trước (\" thay vì ").
+                </div>
+                <div class="card-action">
+                    <input type="hidden" id="json" name="json">
+                    <button class="btn waves-effect waves-light blue" type="submit" name="action">Thêm sản phẩm</button>
+                </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="/function.js"></script>
+    <script>
+        function change(t, l)
+        {
+            var x = document.getElementById(l);
+            x.innerText = t.value.split('\\')[t.value.split('\\').length - 1];
+        }
+        $('#add-p-form').submit(function(){
+            var sp = new SP($('#code').val(), $('#maker').val(), $('#name').val(), $('#price').val(), $('#des').val(), $('#cpu').val(), $('#ram').val(), $('#display').val(), $('#os').val(), $('#fcam').val(), $('#bcam').val(), $('#memory').val(), $('#sim').val(), $('#pin').val(), ' '+$('#tags').val()+' ');
+            $('#json').val(JSON.stringify(sp));
+            return true;
+        })
+    </script>
+</body>
+</html>
